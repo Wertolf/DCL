@@ -5,7 +5,7 @@ They are relative to the current working directory
 where toplevel scripts are.
 '''
 
-MATERIALS = r'Materials'
+MATERIALS = r'..\Materials'
 SAVE = r'Save'
 
 GIF  = r'DCL.gif'
