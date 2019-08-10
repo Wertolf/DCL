@@ -1,2 +1,2 @@
 # DCL
-DCL stands for Draw Card Life
+DCL, Draw Card Life, is a game made via Python.
