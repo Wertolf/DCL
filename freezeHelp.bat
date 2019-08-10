@@ -1,0 +1,2 @@
+pyinstaller --help
+pause
