@@ -96,12 +96,28 @@ def start(startFrame):
     from subprocess import Popen, PIPE
 
     import sys
-    if len(sys.argv) == 1:
-        '''launch Login.py via IDLE.'''
-        pipe = Popen('python StartGame.py', stdout=PIPE, stderr=PIPE, text=True)
-    else:
-        if (sys.argv[1], sys.argv[2]) == ('-m', 'exe'):
+
+    if len(sys.argv) > 1:
+        if   (sys.argv[1], sys.argv[2]) == ('-m', 'py'):
+            'launch StartGame.py'
+            pipe = Popen('python StartGame.py', stdout=PIPE, stderr=PIPE, text=True)
+        elif (sys.argv[1], sys.argv[2]) == ('-m', 'exe'):
+            'launch StartGame.exe'
             pipe = Popen('StartGame.exe', stdout=PIPE, stderr=PIPE, text=True)
+        else:
+            print('UNKNOWN ARGS')
+            input('PRESS TO EXIT...')
+            raise SystemExit
+    else:
+        print('NO ARGS PASSED')
+        mode = input('SELECT LAUNCH MODE(PY/EXE)>')
+        if mode.upper() == 'PY':
+            'launch StartGame.py'
+            pipe = Popen('python StartGame.py', stdout=PIPE, stderr=PIPE, text=True)
+        elif mode.upper() == 'EXE':
+            'launch StartGame.exe'
+            pipe = Popen('StartGame.exe', stdout=PIPE, stderr=PIPE, text=True)
+
 
     stdout, stderr = pipe.communicate()
     print('\n===== GAME STDOUT =====\n')
